@@ -1,0 +1,40 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: square-service
+  name: square-service
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: square-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: square-service
+    spec:
+      containers:
+      - image: square-service:latest
+        imagePullPolicy: IfNotPresent
+        name: square-service
+        ports:
+        - containerPort: 8080
+          name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: square-service
+  labels:
+    service: square-service
+  namespace: default
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+  selector:
+    app: square-service
+  type: LoadBalancer
