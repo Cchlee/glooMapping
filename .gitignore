@@ -1,3 +1,7 @@
 googleapis/
 
 test-venv/
+
+api_descriptor.pb
+
+glooOverview.md
