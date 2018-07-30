@@ -1,17 +1,17 @@
 syntax = "proto3";
 
 
-import "google/api/annotations.proto";
-import "google/protobuf/empty.proto";
+//import "google/api/annotations.proto";
+//import "google/protobuf/empty.proto";
 
 // The greeting service definition.
 service SquareService {
-	rpc SquareNumber(google.protobuf.Empty) returns (NumberSquared) {
-
-  option (google.api.http) = {get: "/v1/numbers"};
- }
+  rpc SquareNumber(Base) returns (NumberSquared) {}
 }
 
+message Base{
+  int64 baseNumber = 1;
+}
 
 message NumberSquared {
   int64 numberSquared = 1;

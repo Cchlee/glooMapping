@@ -5,3 +5,7 @@ test-venv/
 api_descriptor.pb
 
 glooOverview.md
+
+node_modules/
+
+*.pyc
